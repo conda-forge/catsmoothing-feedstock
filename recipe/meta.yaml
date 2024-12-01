@@ -23,6 +23,7 @@ requirements:
   host:
     - python
     - maturin
+    - setuptools
     - wheel >=0.29.0
     - pip
   run:
