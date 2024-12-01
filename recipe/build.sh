@@ -7,7 +7,7 @@ set -o xtrace -o nounset -o pipefail -o errexit
 export CARGO_NET_GIT_FETCH_WITH_CLI=true
 
 # Bundle all downstream library licenses
-pushd src/catsmoothing
+pushd src
 cargo-bundle-licenses \
     --format yaml \
     --output ${SRC_DIR}/THIRDPARTY.yml
