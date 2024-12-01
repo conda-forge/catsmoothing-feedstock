@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/catsmoothing-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/catsmoothing-{{ version }}.tar.gz
   sha256: 4b991149ce176e2134ba00b7ebd1b91f2c57a0766cf17b4e400a95c92dc70905
 
 build:
