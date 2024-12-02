@@ -1,2 +1,6 @@
+channel_sources:
+  - conda-forge/label/rust_dev,conda-forge
+channel_targets:
+  - conda-forge main
 MACOSX_SDK_VERSION:        # [osx]
   - "11.0"                 # [osx]

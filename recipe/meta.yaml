@@ -15,27 +15,18 @@ build:
 
 requirements:
   build:
-    - ${{ compiler('c') }}
-    - ${{ stdlib('c') }}
-    - ${{ compiler('cxx') }}
-    - ${{ compiler('rust') }} >=1.65.0
-    - maturin >=1.4
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - maturin >=1.4,<2.0                     # [build_platform != target_platform]
+    - {{ compiler('c') }}
+    - {{ stdlib("c") }}
+    - {{ compiler('rust') }}
+    - libclang
+    - clang
     - cargo-bundle-licenses
-
-    # cross-compilation dependencies
-    - if: build_platform != target_platform
-      then:
-        - python
-        - cross-python_${{ target_platform }}
-        - crossenv
-
-    - if: unix
-      then:
-        - libclang
-        - clangdev
   host:
     - python
-    - maturin
+    - maturin >=1.4,<2.0
     - setuptools
     - wheel >=0.29.0
     - pip
