@@ -1,5 +1,6 @@
 set "PYO3_PYTHON=%PYTHON%"
 set "LIBCLANG_PATH"=%LIBRARY_BIN%
+set PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1
 
 maturin build -v --jobs 1 --bindings pyo3 --release --manylinux off --interpreter=%PYTHON%
 if errorlevel 1 exit 1
