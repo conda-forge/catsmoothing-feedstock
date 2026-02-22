@@ -1,5 +1,5 @@
 {% set name = "catsmoothing" %}
-{% set version = "0.3.1" %}
+{% set version = "0.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/catsmoothing-{{ version }}.tar.gz
-  sha256: e4523ea86a19bacffb6c9bfbe489dc44538327b7d95e5e6c817f81486201707e
+  sha256: 826342ce96bc8700baa267290bdd56d4fad52079f348142a71927021c20139a7
 
 build:
   skip: true  # [py<=39]
-  number: 1
+  number: 0
 
 requirements:
   build:
