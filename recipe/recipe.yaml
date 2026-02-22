@@ -13,16 +13,20 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<=39]
+  skip:
+    - if: match(python, "<3.10")
+      then: true
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - maturin >=1.4,<2.0                     # [build_platform != target_platform]
-    - {{ compiler('c') }}
-    - {{ stdlib("c") }}
-    - {{ compiler('rust') }}
+    - if: build_platform != target_platform
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - maturin >=1.4,<2.0
+    - ${{ compiler("c") }}
+    - ${{ stdlib("c") }}
+    - ${{ compiler("rust") }}
     - libclang
     - clang
     - cargo-bundle-licenses
