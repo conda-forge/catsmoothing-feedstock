@@ -1,17 +1,19 @@
-{% set name = "catsmoothing" %}
-{% set version = "0.3.1" %}
+schema_version: 1
+
+context:
+  version: 0.4.1
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: catsmoothing
+  version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/catsmoothing-{{ version }}.tar.gz
-  sha256: e4523ea86a19bacffb6c9bfbe489dc44538327b7d95e5e6c817f81486201707e
+  url: https://pypi.org/packages/source/c/catsmoothing/catsmoothing-${{ version }}.tar.gz
+  sha256: 826342ce96bc8700baa267290bdd56d4fad52079f348142a71927021c20139a7
 
 build:
+  number: 0
   skip: true  # [py<=39]
-  number: 1
 
 requirements:
   build:
@@ -27,29 +29,23 @@ requirements:
   host:
     - python
     - maturin >=1.4,<2.0
-    - setuptools
-    - wheel >=0.29.0
     - pip
   run:
     - python
     - numpy >=2
     - shapely >=2
 
-test:
-  imports:
-    - catsmoothing
-  commands:
-    - pip check
-  requires:
-    - pip
+tests:
+  - python:
+      imports:
+        - catsmoothing
+      pip_check: true
 
 about:
-  home: https://github.com/cheginit/catsmoothing
-  summary: Smoothing Shapely geometries using CatMull-Rom spline
-  doc_url: https://catsmoothing.readthedocs.io
-  dev_url: https://github.com/cheginit/catsmoothing
+  summary: Smoothing Shapely geometries using Catmull-Rom spline
   license: MIT
   license_file: LICENSE
+  homepage: https://github.com/cheginit/catsmoothing
 
 extra:
   recipe-maintainers:
