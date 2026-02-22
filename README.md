@@ -7,11 +7,7 @@ Home: https://github.com/cheginit/catsmoothing
 
 Package license: MIT
 
-Summary: Smoothing Shapely geometries using CatMull-Rom spline
-
-Development: https://github.com/cheginit/catsmoothing
-
-Documentation: https://catsmoothing.readthedocs.io
+Summary: Smoothing Shapely geometries using Catmull-Rom spline
 
 Current build status
 ====================
