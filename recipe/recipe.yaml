@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: 0.4.1
+  version: "0.5.0"
 
 package:
   name: catsmoothing
@@ -9,12 +9,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/c/catsmoothing/catsmoothing-${{ version }}.tar.gz
-  sha256: 826342ce96bc8700baa267290bdd56d4fad52079f348142a71927021c20139a7
+  sha256: 6db5751aed188eb9d4020abae7e070d08238b164e6124b32803ff74ef46f95b3
 
 build:
-  number: 2
+  number: 0
   skip:
-    - if: match(python, "<3.10")
+    - if: match(python, "<3.13")
       then: true
 
 requirements:
